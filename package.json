@@ -1,0 +1,26 @@
+{
+  "name": "pph2018",
+  "version": "1.0.0",
+  "description": "Pair Project Phase 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mochfamir/pph2018.git"
+  },
+  "author": "Natanael Faishal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mochfamir/pph2018/issues"
+  },
+  "homepage": "https://github.com/mochfamir/pph2018#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-sessions": "^1.0.6",
+    "pg": "^7.5.0",
+    "sequelize": "^4.41.0"
+  }
+}
