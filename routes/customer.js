@@ -15,7 +15,7 @@ router.post('/login', (req, res) => {
         }
     })
         .then((data) => {
-            if(data) {
+            if (data) {
                 req.session.user = {
                     id: data.id,
                     email: data.Email,
@@ -28,9 +28,6 @@ router.post('/login', (req, res) => {
                     error: "Please try again"
                 })
             }
-        })
-        .catch(() => {
-            res.send('error')
         })
 
 })
@@ -46,12 +43,12 @@ router.get('/food/list', isLogin, (req, res) => {
         })
         .then((food) => {
             Food_Users.findAll({
-                include: [{model: Food}]
-            },{
-                where: {
-                    UserId: Number(req.session.user.id)
-                }
-            })
+                include: [{ model: Food }]
+            }, {
+                    where: {
+                        UserId: Number(req.session.user.id)
+                    }
+                })
                 .then((chart) => {
                     //res.send(chart)
                     console.log(req.session.user)
@@ -87,35 +84,44 @@ router.get('/food/list/:id/:qty', isLogin, (req, res) => {
             quantity: req.params.qty
         }
     })
-    .then(() => {
-        res.redirect('/customer/food/list')
-    })
-    .catch(err => {
-        res.send(err.message)
-    })
+        .then(() => {
+            res.redirect('/customer/food/list')
+        })
+        .catch(err => {
+            res.send(err.message)
+        })
 })
 router.get('/checkout', isLogin, (req, res) => {
-        Food_Users.findAll({
-            include: [{model: Food}]
-        },{
+    Food_Users.findAll({
+        include: [{ model: Food }]
+    }, {
             where: {
                 UserId: Number(req.session.user.id)
             }
         })
-            .then((chart) => {
-                //res.send(chart)
-                console.log(req.session.user)
-                res.render('customer/checkout', {chart: chart, session: req.session.user })
-            })
-    })
+        .then((chart) => {
+            //res.send(chart)
+            console.log(req.session.user)
+            res.render('customer/checkout', { chart: chart, session: req.session.user })
+        })
+})
 
-router.get('/payment', isLogin, (req,res) => {
-    Food_Users.destroy({
-        where: req.session.user.id
+router.get('/payment', isLogin, (req, res) => {
+    Food_Users.findAll()
+    .then((data) => {
+        res.send(data)
     })
-    .then(() => {
-        
-    })
+    // Food_Users.destroy({
+    //     where: {
+    //         UserId: req.session.user.id}
+    // })
+    //     .then(() => {
+    //         res.redirect('/')
+    //     })
+    //     .catch(err => {
+    //         res.send(err.message)
+    //     })
+
 })
 
 

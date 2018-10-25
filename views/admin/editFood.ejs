@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Food</title>
+</head>
+<body>
+    <h1>Edit Food</h1>
+
+    <form action="./<%=data.id%>" method="POST" style="width:100px">
+        <label for="name">Food Name:</label>
+        <input type="text" name="name" value="<%=data.name%>">
+        <br><br>
+        <label for="price">Food Price:</label>
+        <input type="text" name="price" value="<%=data.price%>">
+        <br><br>
+        <label for="category">Food Category:</label>
+        <select name="category">
+                <% category.forEach(result => {%>
+                    <option value=" <%= result.name %>">
+                        <%= result.name %>
+                    </option>
+                    <%})%>
+        </select>
+        <br><br>
+        <button>Edit Food</button>
+
+    </form>
+    
+</body>
+<%-include('../partials/footer.ejs')%>
+
+</html>

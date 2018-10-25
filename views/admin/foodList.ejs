@@ -24,7 +24,7 @@
                 <td><%=food.price%></td>
                 <td><%=food.category%></td>
                 <td><%=food.popularity%></td>
-                <td><a href="">Edit</a> | <a href="">Delete</a></td>
+                <td><a href="/admin/edit-food/<%=food.id%>">Edit</a> | <a href="/admin/delete-food/<%=food.id%>" onclick="return confirm('Delete this Food?')">Delete</a></td>
             </tr>
         <%})%>
     </table>
@@ -33,4 +33,5 @@
 
 
 </body>
+<%-include('../partials/footer.ejs')%>
 </html>

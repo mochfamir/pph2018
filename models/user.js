@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Email must be valid!"
         }
       }
-    }
+    },
+    salt: DataTypes.TEXT
   }, {
       hooks: {
         beforeCreate: (User, options) => {
