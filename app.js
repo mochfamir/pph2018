@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const home = require('./routes/index.js')
 const admin = require('./routes/admin.js')
+const logout = require('./routes/logout.js')
 const session = require('express-session')
 
 
@@ -21,6 +22,8 @@ app.use(session({
 
 app.use('/', home)
 app.use('/admin', admin)
+app.use('/logout', logout)
+
 
 
 

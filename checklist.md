@@ -1,8 +1,7 @@
 1. CRUD
 
 No login
--CREATE Customer
--CREATE Admin
+-CREATE Customer ok
 
 Customer
 -READ order so far
@@ -11,12 +10,12 @@ Customer
 -READ list of Food
 
 Admin
--CREATE new Food item
--UPDATE Food
--DELETE customer/other admin
--DELETE Food
--READ list of Food
--READ list of Customers
+-CREATE new Food item ok
+-UPDATE Food ok
+-DELETE customer/other admin ok
+-DELETE Food ok
+-READ list of Food ok
+-READ list of Customers ok
 
 2. Class + Instance Method
 
@@ -24,11 +23,11 @@ Admin
 
 3. Many to Many
 
-- Create Association between Users and Food table
+- Create Association between Users and Food table ok
 
 4. Helper
 
--
+- ok
 
 
 5. Hooks
@@ -60,4 +59,3 @@ Admin
 11. Encrypt
 
 - make sure password stored is encrypted
-

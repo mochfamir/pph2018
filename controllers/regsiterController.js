@@ -10,14 +10,12 @@ class Register {
             password: req.body.password,
             Email: req.body.email
         })
-        //then catch
         .then(() => {
             res.render('../views/registerSuccess.ejs');
         })
         .catch((err) => {
             res.send(err.message);
         })
-        //res.send(req.body)
     }
 }
 
