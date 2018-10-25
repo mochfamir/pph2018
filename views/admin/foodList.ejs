@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Food List</title>
+</head>
+<body>
+    <%-include('../partials/table.ejs')%>
+    <h1>Food List</h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Popularity</th>
+            <th>Options</th>
+        </tr>
+        <% data.forEach(function(food, index) {%>
+            <tr>
+                <td><%=food.name%></td>
+                <td><%=food.price%></td>
+                <td><%=food.category%></td>
+                <td><%=food.popularity%></td>
+                <td><a href="">Edit</a> | <a href="">Delete</a></td>
+            </tr>
+        <%})%>
+    </table>
+    <h3>Need to add a new menu?</h3>
+    <button onclick="window.location.href='/admin/add-food'">Add New Food</button>
+
+
+</body>
+</html>
