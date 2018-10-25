@@ -3,7 +3,7 @@ function isLogin (req,res,next){
         return next()
     } else {
         res.render('../views/error', {
-            error: 'Please login as an Admin to access this page'
+            error: 'Please login as appropriate User'
         })
     }
 }

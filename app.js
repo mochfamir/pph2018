@@ -23,7 +23,7 @@ app.use(session({
 
 app.use('/', home)
 app.use('/admin', admin)
-app.use('/', customer)
+app.use('/customer', customer)
 
 
 

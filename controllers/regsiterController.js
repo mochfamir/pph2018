@@ -1,7 +1,7 @@
 const userCustomer = require('../models/index').User;
 class Register {
     static renderCustomerRegister(req,res) {
-        res.render()
+        res.render('register')
     }
     
     static postCustomerRegister(req,res) {
