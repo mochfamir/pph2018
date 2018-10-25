@@ -12,7 +12,7 @@ class Register {
         })
         //then catch
         .then(() => {
-            res.redirect('/register');
+            res.render('../views/registerSuccess.ejs');
         })
         .catch((err) => {
             res.send(err.message);
