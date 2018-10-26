@@ -108,10 +108,67 @@ router.get('/checkout', isLogin, (req, res) => {
 })
 
 router.get('/payment', isLogin, (req, res) => {
-    Food_Users.findAll()
-    .then((data) => {
-        res.send(data)
+    // const foodUsers = []
+    Food_Users.findAll({
+        include: [{ model: Food }]
+    },{
+        where: {
+            UserId: req.session.user.id
+        }
     })
+    .then((foodUser) => {
+        //res.send(foodUser)
+        const promiseFoods = []
+        // foodUsers = foodUser
+        foodUser.forEach((food) => {
+            promiseFoods.push( Food.findAll({
+                where: {
+                    id: food.FoodId
+                }
+            }))
+        })
+        return Promise.all(promiseFoods)
+        .then((data) => {
+            res.send(data)
+        })
+        // foodUser.forEach((food, index) => {
+        //     Food.update({
+        //         popularity: food.quantity
+        //     })
+        // })
+        // for (let i = 0; i < foodUser.length; i++) {
+        //     //console.log(foodUser.Food.price)
+        //     let count = 0;
+        //     count += foodUser[i].quantity 
+        //     return Food.findAll({
+        //         where: {
+        //             id: foodUser.FoodId
+        //         }
+        //     })
+            // .then((food) => {
+                //res.send(food)
+                // food.forEach(food => {
+                //     count += food.popularity
+                //     Food.update({
+                //         popularity: count
+                //     },{
+                //         where: {
+                //             id: foodUser[i].FoodId
+                //         }
+                //     })
+        //         // })
+        //     })
+        // }
+        // res.send('bisa')
+    })
+    
+    // Food.update({
+    //     popularity: 0
+    // },{
+    //     where: {
+
+    //     }
+    // })
     // Food_Users.destroy({
     //     where: {
     //         UserId: req.session.user.id}
