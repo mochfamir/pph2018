@@ -5,6 +5,7 @@ const Food_Users = require('../models/index').Food_Users;
 const User = require('../models/index').User;
 const Controller = require('../controllers/customerController')
 const isLogin = require('../middleware/isLoginCustomer')
+const currency = require('../helpers/currency')
 
 router.get('/login', Controller.renderLogPage)
 router.post('/login', (req, res) => {
@@ -52,7 +53,7 @@ router.get('/food/list', isLogin, (req, res) => {
                 .then((chart) => {
                     //res.send(chart)
                     console.log(req.session.user)
-                    res.render('customer/food_list', { data: food, chart: chart, session: req.session.user })
+                    res.render('customer/food_list', { data: food, chart: chart, session: req.session.user, currency: currency })
                 })
         })
         .catch((err) => {
@@ -102,7 +103,7 @@ router.get('/checkout', isLogin, (req, res) => {
         .then((chart) => {
             //res.send(chart)
             console.log(req.session.user)
-            res.render('customer/checkout', { chart: chart, session: req.session.user })
+            res.render('customer/checkout', { chart: chart, session: req.session.user, currency: currency })
         })
 })
 

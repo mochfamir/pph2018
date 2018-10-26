@@ -20,7 +20,7 @@
         <% data.forEach(function(food, index) {%>
             <tr>
                 <td><%=food.name%></td>
-                <td><%=food.price%></td>
+                <td><%=currency(food.price)%></td>
                 <td><%=food.category%></td>
                 <td><%=food.popularity%></td>
                 <td>
@@ -45,7 +45,7 @@
             <% chart.forEach((data) => {%>
                 <tr>
                     <td><%= data.Food.name%></td>
-                    <td><%= data.Food.price%></td>
+                    <td><%= currency(data.Food.price)%></td>
                     <td><%= data.Food.category%></td>
                     <td><%= data.quantity%></td>
                     <td><%= data.Food.popularity%></td>
@@ -56,9 +56,6 @@
             <%})%>
         </table>
         <button onclick="window.location.href = '/customer/checkout'">Checkout</button>
-    <!-- <h3>Need to add a new menu?</h3>
-    <button onclick="window.location.href='/admin/add-food'">Add New Food</button> -->
-
-
 </body>
+<%-include('../partials/footer.ejs')%>
 </html>

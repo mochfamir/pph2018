@@ -11,5 +11,7 @@ function currency(number) {
         }
         count += 1
     }
-    return `Rp.${output},00`
+    return `Rp ${output},00`
 }
+
+module.exports = currency

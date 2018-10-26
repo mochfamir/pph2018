@@ -1,5 +1,6 @@
 const Model = require('../models/index.js')
 const crypto = require('crypto')
+const currency = require('../helpers/currency')
 
 class Controller {
     static renderHomePage(req, res) {
@@ -20,7 +21,7 @@ class Controller {
             userId = result.id
             salt = result.salt
             let hashedPassword = crypto.createHmac('sha256', salt)
-                                 .update(req.body.password)
+                                .update(req.body.password)
                                 .digest('hex')
             return Model.User.findOne({where:{
                 id: userId,
@@ -51,7 +52,8 @@ class Controller {
         Model.Food.findAll()
           .then((data) => {
             res.render('../views/admin/foodList.ejs', {
-                data: data
+                data: data,
+                currency: currency
             })
           })
           .catch((err) => {

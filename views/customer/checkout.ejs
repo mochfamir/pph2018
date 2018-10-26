@@ -22,7 +22,7 @@
             <% chart.forEach((data) => {%>
                 <tr>
                     <td><%= data.Food.name%></td>
-                    <td><%= data.Food.price%></td>
+                    <td><%= currency(data.Food.price)%></td>
                     <td><%= data.quantity%></td>
                     <td><%= data.Food.price * data.quantity%></td>
                 </tr>
@@ -35,4 +35,6 @@
     </table>
     <p><a href="/customer/food/list">Revise Order</a> <a href="/customer/payment">Payment</a></p>
 </body>
+<%-include('../partials/footer.ejs')%>
+
 </html>
