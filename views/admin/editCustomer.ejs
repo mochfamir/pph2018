@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Customer</title>
+</head>
+<body>
+    <h1>Edit Customer</h1>
+
+    <form action="./<%=data.id%>" method="POST">
+        <label for="name">Customer Name:</label>
+        <br>
+        <input type="text" name="name" value="<%=data.name%>">
+        <br><br>
+        <label for="price">Customer Email:</label>
+        <br>
+        <input type="text" name="email" value="<%=data.Email%>">
+        <br><br>
+        <button>Edit Customer</button>
+
+    </form>
+    
+</body>
+<%-include('../partials/footer.ejs')%>
+
+</html>

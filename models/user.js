@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Email must be valid!"
         }
       }
-    }
+    },
+    salt: DataTypes.TEXT
   }, {
       hooks: {
         beforeCreate: (User, options) => {
@@ -22,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   User.associate = function (models) {
     // associations can be defined here
+    User.belongsToMany(models.Food, {through: 'Food_Users'})
   };
   return User;
 };

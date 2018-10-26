@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <%-include('../partials/table.ejs')%>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let total = 0 %>
+            <% chart.forEach((data) => {%>
+                <tr>
+                    <td><%= data.Food.name%></td>
+                    <td><%= currency(data.Food.price)%></td>
+                    <td><%= data.quantity%></td>
+                    <td><%= data.Food.price * data.quantity%></td>
+                </tr>
+                <% total += data.Food.price * data.quantity%>
+            <%})%>
+        </tbody>
+        <tr>
+            <td>Total : <%= total %></td>
+        </tr>
+    </table>
+    <p><a href="/customer/food/list">Revise Order</a> <a href="/customer/payment">Payment</a></p>
+</body>
+<%-include('../partials/footer.ejs')%>
+
+</html>

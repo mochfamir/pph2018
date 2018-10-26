@@ -10,13 +10,14 @@
     <h1>Welcome to Restaurant</h1>
     <h3>Please select one of the following:</h3>
     <h4>New here? Come an register</h4>
-    <button onclick="window.location.href=''">Register</button>
+    <button onclick="window.location.href='/register'">Register</button>
 
     <h4>Already a member? Then lets get started</h4>
-    <button onclick="window.location.href=''">Customer</button>
+    <button onclick="window.location.href='./customer/login'">Customer</button>
     <button onclick="window.location.href='./admin/login'">Admin</button>
 
 
     
 </body>
+<%-include('./partials/footer.ejs')%>
 </html>

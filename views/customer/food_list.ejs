@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Food List</title>
+</head>
+<body>
+    <%-include('../partials/table.ejs')%>
+    <h1>Food List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Popularity</th>
+            <th>Options</th>
+        </tr>
+        <% data.forEach(function(food, index) {%>
+            <tr>
+                <td><%=food.name%></td>
+                <td><%=currency(food.price)%></td>
+                <td><%=food.category%></td>
+                <td><%=food.popularity%></td>
+                <td>
+                    <form action="/customer/food/list/<%=food.id%>" method="post">
+                        <input type="number" name="quantity" ><button type="submit">Add</button>
+                    </form>
+                </td>
+            </tr>
+        <%})%>
+    </table>
+    <br>
+    <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Popularity</th>
+                <th>Options</th>
+            </tr>
+            
+            <% chart.forEach((data) => {%>
+                <tr>
+                    <td><%= data.Food.name%></td>
+                    <td><%= currency(data.Food.price)%></td>
+                    <td><%= data.Food.category%></td>
+                    <td><%= data.quantity%></td>
+                    <td><%= data.Food.popularity%></td>
+                    <td>
+                            <button onclick="window.location.href = '/customer/food/list/<%=data.Food.id%>/<%=data.quantity%>'">delete</button>
+                    </td>
+                </tr>
+            <%})%>
+        </table>
+        <button onclick="window.location.href = '/customer/checkout'">Checkout</button>
+</body>
+<%-include('../partials/footer.ejs')%>
+</html>
