@@ -17,6 +17,8 @@ router.post('/edit-food/:foodId', isLogin, Controller.postEditFood)
 router.get('/delete-food/:foodId', isLogin, Controller.renderDeleteFood)
 router.get('/edit-customer/:customerId', isLogin, Controller.renderEditCustomer)
 router.post('/edit-customer/:customerId', isLogin, Controller.postEditCustomer)
+router.get('/delete-customer/:customerId', isLogin, Controller.renderDeleteCustomer)
+
 
 
 

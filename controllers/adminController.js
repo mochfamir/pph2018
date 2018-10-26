@@ -183,6 +183,19 @@ class Controller {
               })
           })
     }
+    static renderDeleteCustomer(req, res) {
+        Model.User.destroy({where:{
+            id: req.params.customerId
+        }})
+        .then(data => {
+            res.redirect('/admin/customers')
+          })
+          .catch((err) => {
+              res.render('../views/error.ejs', {
+                  error: err
+              })
+          })
+    }   
 }
 
 module.exports = Controller
